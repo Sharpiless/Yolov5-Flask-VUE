@@ -8,5 +8,6 @@ def predict(dataset, model, ext):
     print(file_name)
     x = cv2.imread(x)
     img_y, image_info = model.detect(x)
-    cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y)
+    if cv2.imwrite('./tmp/draw/{}.{}'.format(file_name, ext), img_y):
+        raise Exception('保存图片时出错.Error saving thepicture.')
     return image_info
