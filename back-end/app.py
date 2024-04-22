@@ -78,13 +78,6 @@ def show_photo(file):
 
 
 if __name__ == '__main__':
-    files = [
-        'uploads', 'tmp/ct', 'tmp/draw',
-        'tmp/image', 'tmp/mask', 'tmp/uploads'
-    ]
-    for ff in files:
-        if not os.path.exists(ff):
-            os.makedirs(ff)
     with app.app_context():
         current_app.model = Detector()
     app.run(host='127.0.0.1', port=5003, debug=True)
